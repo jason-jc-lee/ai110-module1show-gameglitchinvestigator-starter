@@ -54,16 +54,18 @@ One misleading example was when the AI told that Hard's range should be 1,200 de
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+I decided when I tried to figure every possible way to replicate that exact same bug and also possible cases where more bugs could appear from the fix. If no bugs appeared, then it was fixed.
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+  I ran the python3 -m pytest command and it showed that the tests intially failed. This failed since a string was expected but check_guess method returned a tuple. To fix this, I made it so that the tests checked result[0] so all cases passed.
 - Did AI help you design or understand any tests? How?
-
+Yes, AI helped me understand the tests since it explained why tests were failing and possible solutions that can be utilized to make sections of the code connect with each other. (i.e the AI suggesting to only check result[0] to check the outcome than expecting an entire string)
 ---
 
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-
+I would explain Streamlit reruns as refreshing everytime the application is interacted with. So any variables created would reset to original values for each click. Session state is when certain memory is stored across these reruns, so they wouldn't be reset for each interaction. These include the secret number and the score as they are essential for allowing the user to win.
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -72,3 +74,9 @@ One misleading example was when the AI told that Hard's range should be 1,200 de
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+One habit I could reuse is to add comments that need fixing so I can mark bugs. This makes it more easier and focused for me to deal with multiple problems at a time than just changing things on the spot.
+
+One thing that I would do differently next time would be to verify AI suggestions before applying them blindly. Some misleading information can be presented and not knowing about this can lead to hassles.
+
+This project helped me realize that AI isn't what it seems and can be buggy, despite making code look smooth and functional. Not everything can be ran and assumed that it works.
